@@ -5,15 +5,10 @@ async function signup(body){
 
     const passowordHAsd = bcrypt.hashSync(body.password, 10)
 
-    authRepository.deleti('carlos')
-
-
     const UserByEmail = await authRepository.findEmail(body.email)
+    console.log(UserByEmail)
 
-    if(UserByEmail){
-        throw console.error('esse usuario ja existe')
-    }
-
+    if(UserByEmail) throw new Error('ja exite um email desse')
 
     return authRepository.create({...body, password: passowordHAsd})
 

@@ -13,4 +13,6 @@ async function findEmail(email){
     const UserFindEmail = await UserSchema.findOne({ email })
     return UserFindEmail
 }
+
+
 export default {create , findEmail, deleti }
