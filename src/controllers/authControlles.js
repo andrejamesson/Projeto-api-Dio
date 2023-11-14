@@ -13,4 +13,21 @@ async function signup(req , res){
     }
 }
 
-export default {signup}
+
+async function signin(req, res){
+
+    const body = req.body
+
+    try{
+        const token = await authServices.signin(body)
+        return res.send(token)
+    }catch(error){
+        return res.status(401).send(error.message)
+    }
+
+}
+
+export default {
+    signup,
+    signin
+}

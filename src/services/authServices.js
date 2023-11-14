@@ -11,10 +11,19 @@ async function signup(body){
     if(UserByEmail) throw new Error('ja exite um email desse')
 
     return authRepository.create({...body, password: passowordHAsd})
+}
 
+async function signin(body){
+    const userExist = await authRepository.findEmail(body.email)
+    if(!userExist) throw new Error('email or password invalid')
 
+    const passowrdOk = bcrypt.compareSync(body.password , userExist.password)
+    if(!passowrdOk) throw new Error('email or password invalid')
+
+    return authRepository.generetToken(userExist._id)
 }
 
 export default {
-    signup
+    signup,
+    signin
 }

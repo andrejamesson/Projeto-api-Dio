@@ -1,11 +1,10 @@
 import { Router } from "express";
 import authControlles from "../controllers/authControlles.js";
-import authRepository from "../repositories/authRepository.js";
 
 const authRoutes = Router()
 
-authRoutes.post('/home', authControlles.signup)
-authRoutes.delete('/home' , authRepository.deleti)
+authRoutes.post('/signup', authControlles.signup)
+authRoutes.post('/signin' , authControlles.signin)
 
 
 export default authRoutes
