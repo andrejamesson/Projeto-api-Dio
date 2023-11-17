@@ -20,9 +20,15 @@ async function generetToken(id){
     //!            infs do user , palavra secreta , e o tempo para o token experar
 }
 
+async function findId(id){
+    const UserFindEmail = await UserSchema.findById(id)
+    return UserFindEmail
+}
+
 export default {
     create ,
     findEmail,
     deleti, 
-    generetToken
+    generetToken,
+    findId
 }

@@ -8,8 +8,7 @@ async function verUser(body){
 
     try{
         const jwt = await fetch("http://localhost:3001/signin", {
-            method: 'POST',
-            body: JSON.stringify(body)
+            method: 'POST'
         })
         .then((res) => res.json())
         .then((res) => console.log(res))
