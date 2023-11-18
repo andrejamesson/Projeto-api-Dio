@@ -52,6 +52,3 @@ Este projeto é distribuído sob a licença [MIT](LICENSE) - veja o arquivo LICE
 ## Contato
 
 Para questões, sugestões ou colaborações, entre em contato com [Carloseduardomelo](https://github.com/Carloseduardomelo).
-
----
-**Nota:** Certifique-se de revisar e atualizar as informações conforme necessário, especialmente os links e as instruções de instalação, com base nas últimas alterações no projeto.
