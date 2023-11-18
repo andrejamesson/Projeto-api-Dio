@@ -5,6 +5,7 @@ async function signup(body){
 
     const passowordHAsd = bcrypt.hashSync(body.password, 10)
 
+
     const UserByEmail = await authRepository.findEmail(body.email)
     console.log(UserByEmail)
 
@@ -23,7 +24,17 @@ async function signin(body){
     return authRepository.generetToken(userExist._id)
 }
 
+async function userLogado(id){
+    
+    const user = await authRepository.findId(id)
+
+    if(!user) throw new Error('user not existe')
+
+    return user
+}
+
 export default {
     signup,
-    signin
+    signin,
+    userLogado
 }

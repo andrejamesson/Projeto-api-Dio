@@ -1,9 +1,13 @@
 import authServices from "../services/authServices.js"
 
 async function signup(req , res){
+
+    let password = req.body.password 
+    res.locals.password = password;
     
     try{
         const body = req.body
+
     
         const resSeverse = await authServices.signup(body)
     
@@ -27,7 +31,20 @@ async function signin(req, res){
 
 }
 
+async function userlogado(req , res){
+
+    const { _id: id } = res.locals.user;
+
+    try{
+        const userlogado = await authServices.userLogado(id)
+        return res.send(userlogado)
+    }catch(error){
+        return res.status(401).send(error.message)
+    }
+}
+
 export default {
     signup,
-    signin
+    signin,
+    userlogado
 }
