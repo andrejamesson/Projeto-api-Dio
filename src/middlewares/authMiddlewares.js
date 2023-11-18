@@ -24,6 +24,8 @@ export default async function authmiddleware(req , res, netx){
 
         res.locals.user = user;
 
+        console.log(res.locals.user)
+
         netx()
     })
 

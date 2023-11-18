@@ -1,6 +1,5 @@
 import UserSchema from "../schema/schema.js"
 import  Jwt  from "jsonwebtoken"
-import  check from '../check/check.js'
 
 
 async function create(date){
@@ -11,9 +10,6 @@ async function create(date){
     return await UserSchema.create(date)
 }
 
-async function deleti(name){
-    await UserSchema.deleteOne({name: name})
-}
 
 async function findEmail(email){
     const UserFindEmail = await UserSchema.findOne({ email })
@@ -30,15 +26,19 @@ async function findId(id){
     return UserFindEmail
 }
 
-async function deleteTudo(){
-    return await UserSchema.deleteOne({})
+async function update(body , id){
+    await UserSchema.updateMany({_id:id}, body)
+}
+
+async function deleteUser(id){
+    await UserSchema.deleteOne({_id: id})
 }
 
 export default {
     create ,
     findEmail,
-    deleti, 
     generetToken,
     findId,
-    deleteTudo
+    update,
+    deleteUser
 }

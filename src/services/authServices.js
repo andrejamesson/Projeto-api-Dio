@@ -33,8 +33,19 @@ async function userLogado(id){
     return user
 }
 
+async function update(body , id){
+    return await authRepository.update(id, body)
+}
+
+async function deleteUser(id){
+    return await authRepository.deleteUser(id)
+}
+
+
 export default {
     signup,
     signin,
-    userLogado
+    userLogado,
+    update,
+    deleteUser
 }

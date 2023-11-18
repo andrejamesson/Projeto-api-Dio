@@ -33,7 +33,7 @@ async function signin(req, res){
 
 async function userlogado(req , res){
 
-    const { _id: id } = res.locals.user;
+    const { _id } = res.locals.user;
 
     try{
         const userlogado = await authServices.userLogado(id)
@@ -43,8 +43,32 @@ async function userlogado(req , res){
     }
 }
 
+async function update(req , res){
+
+    const body = req.body
+
+    try{
+        const certo = await authServices.update('id do user do mongodb', body)
+        return certo
+    }catch(error){
+        return res.status(401).send(error.message)
+    }
+}
+
+async function deleteUser(req , res){
+    
+    const id = 'id do user do mongodb'
+    try{
+        return await authServices.deleteUser(id)
+    }catch(eeror){
+        res.status(401).send(eeror.message)
+    }
+}
+
 export default {
     signup,
     signin,
-    userlogado
+    userlogado,
+    update,
+    deleteUser
 }
