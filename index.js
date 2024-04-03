@@ -1,7 +1,8 @@
+
 const user ={
     "name" : "carlos",
-    "email" : "cedu468395423@gmai.c0m",
-    "password": "123456"
+    "email" : "cedu468395423@gmai.com", //Email arrumado
+    "password": "1234567" // A senha era '123456'
   }
 
 async function verUser(body){
