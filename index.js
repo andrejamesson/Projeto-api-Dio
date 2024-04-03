@@ -1,7 +1,7 @@
 
 const user ={
     "name" : "carlos",
-    "email" : "cedu468395423@gmai.com", //Email arrumado
+    "email" : "cedu4683954233@gmai.com", //Email arrumado
     "password": "1234567" // A senha era '123456'
   }
 
